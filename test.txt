@@ -1,2 +1,3 @@
-Hola! Estos es un txt de prueba para subir archivos al 
+Hola! Esto es un txt de prueba para subir archivos al 
 repositorio de GitHub!
+..............................
