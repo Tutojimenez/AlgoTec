@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="solucion_computacional">
+  <ClassDiagramComponents>
+    <Class name="Quiosco" package="Atributos" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="fichas" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="venderBoleto" returnType="int" visibility="public"/>
+        <Method name="reiniciar" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Sms" package="Atributos" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="enviarMensaje" returnType="void" visibility="public">
+          <Argument type="String" name="mensaje"/>
+          <Argument type="String" name="numero"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Usuario" package="Atributos" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="correo" type="String" visibility="private"/>
+        <Field name="tipoUsuario" type="String" visibility="private"/>
+        <Field name="numTel" type="int" visibility="private"/>
+        <Field name="numPaquete" type="int" visibility="private"/>
+        <Field name="tipoBoleto" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="tipoUsuario"/>
+          <Argument type="int" name="numTel"/>
+          <Argument type="int" name="numpaquete"/>
+          <Argument type="String" name="tipoBoleto"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getTipoUsuario" returnType="String" visibility="public"/>
+        <Method name="getCorreo" returnType="String" visibility="public"/>
+        <Method name="getNumTel" returnType="int" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="generarNombre" returnType="String" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="Ventanilla" package="Atributos" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="nombreVentana" type="String" visibility="private"/>
+        <Field name="numVentana" type="int" visibility="private"/>
+        <Field name="estatus" type="boolean" visibility="private"/>
+        <Field name="tipoVentana" type="String" visibility="private"/>
+        <Field name="colaPrioridad" type="Object" visibility="private"/>
+        <Field name="cantidadAtendidos" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombreVentana"/>
+          <Argument type="int" name="numVentana"/>
+          <Argument type="String" name="tipoVentana"/>
+          <Argument type="Object" name="cola"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumero" returnType="int" visibility="public"/>
+        <Method name="estaTrabajando" returnType="boolean" visibility="public"/>
+        <Method name="atender" returnType="boolean" visibility="public"/>
+        <Method name="liberar" returnType="boolean" visibility="public"/>
+        <Method name="liberarAtender" returnType="boolean" visibility="public"/>
+        <Method name="getCola" returnType="Object" visibility="public"/>
+        <Method name="addAtendidos" returnType="int" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="VentanillaNoPerecederos" package="Atributos" visibility="public" xPosition="2410.0" yPosition="20.0">
+      <Fields>
+        <Field name="numVentanaNoperecedros" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombreVentana"/>
+          <Argument type="int" name="numVentana"/>
+          <Argument type="String" name="tipoVentana"/>
+          <Argument type="Object" name="cola"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VentanillaPerecederos" package="Atributos" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="numVentanaPerecederos" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombreVentana"/>
+          <Argument type="int" name="numVentana"/>
+          <Argument type="String" name="tipoVentana"/>
+          <Argument type="Object" name="cola"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VentanillaSeguridad" package="Atributos" visibility="public" xPosition="158.0" yPosition="620.0">
+      <Fields>
+        <Field name="tiempoMin" type="int" visibility="private"/>
+        <Field name="tiempoMax" type="int" visibility="private"/>
+        <Field name="numVentanaSeguridad" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombreVentana"/>
+          <Argument type="int" name="numVentana"/>
+          <Argument type="String" name="tipoVentana"/>
+          <Argument type="Object" name="cola"/>
+          <Argument type="int" name="min"/>
+          <Argument type="int" name="max"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Cola" package="Estructuras" visibility="public" xPosition="787.0" yPosition="620.0">
+      <Fields>
+        <Field name="front" type="Nodo&lt;T&gt;" visibility="private"/>
+        <Field name="rear" type="Nodo&lt;T&gt;" visibility="private"/>
+        <Field name="size" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="enqueue" returnType="void" visibility="public">
+          <Argument type="T" name="element"/>
+        </Method>
+        <Method name="dequeue" returnType="T" visibility="public"/>
+        <Method name="first" returnType="Object" visibility="public"/>
+        <Method name="size" returnType="int" visibility="public"/>
+        <Method name="clear" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ColaPrioridad" package="Estructuras" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields>
+        <Field name="maxSize" type="int" visibility="private"/>
+        <Field name="colaArray" type="Cola[]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="insert" returnType="void" visibility="public">
+          <Argument type="Prioridad" name="nuevo_usuario"/>
+          <Argument type="int" name="prioridad"/>
+        </Method>
+        <Method name="remove" returnType="Prioridad" visibility="public"/>
+        <Method name="toStringColasdePrioridad" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Heap" package="Estructuras" visibility="public" xPosition="1224.0" yPosition="420.0">
+      <Fields>
+        <Field name="heap" type="Prioridad[]" visibility="private"/>
+        <Field name="heapSize" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="capacity"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="clone" returnType="Object" visibility="protected"/>
+        <Method name="clear" returnType="void" visibility="public"/>
+        <Method name="isEmpty" returnType="boolean" visibility="public"/>
+        <Method name="isFull" returnType="boolean" visibility="public"/>
+        <Method name="size" returnType="int" visibility="public"/>
+        <Method name="insert" returnType="void" visibility="public">
+          <Argument type="Usuario" name="job"/>
+          <Argument type="int" name="priority"/>
+        </Method>
+        <Method name="remove" returnType="Prioridad" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Nodo" package="Estructuras" visibility="public" xPosition="1538.0" yPosition="429.0">
+      <Fields>
+        <Field name="element" type="T" visibility="private"/>
+        <Field name="next" type="Nodo&lt;T&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="T" name="element"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="T" name="element"/>
+          <Argument type="Nodo&lt;T&gt;" name="next"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getElement" returnType="T" visibility="public"/>
+        <Method name="setElement" returnType="void" visibility="public">
+          <Argument type="T" name="element"/>
+        </Method>
+        <Method name="getNext" returnType="Nodo&lt;T&gt;" visibility="public"/>
+        <Method name="setNext" returnType="void" visibility="public">
+          <Argument type="Nodo&lt;T&gt;" name="next"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Prioridad" package="Estructuras" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Fields>
+        <Field name="job" type="Usuario" visibility="private"/>
+        <Field name="priority" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Usuario" name="job"/>
+          <Argument type="int" name="priority"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getTask" returnType="Usuario" visibility="public"/>
+        <Method name="getPrioridad" returnType="int" visibility="public"/>
+        <Method name="getUsuario" returnType="Usuario" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Configuracion" package="LogicaDePresentacion" visibility="public" xPosition="2117.0" yPosition="420.0">
+      <Fields>
+        <Field name="Fondo" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="btnCancelar" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnIniciar" type="javax.swing.JButton" visibility="private"/>
+        <Field name="cantidadEntregas" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="cantidadSeguridad" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="colaEntregas" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="colaSeguridad" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="grupoEntregas" type="javax.swing.ButtonGroup" visibility="private"/>
+        <Field name="grupoSeguridad" type="javax.swing.ButtonGroup" visibility="private"/>
+        <Field name="heapEntregas" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="heapSeguridad" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="maximoSeguridad" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="minimoSeguridad" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="btnCancelarMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnIniciarMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Principal" package="LogicaDePresentacion" visibility="public" xPosition="20.0" yPosition="867.0">
+      <Fields>
+        <Field name="mensaje" type="Sms" visibility="private"/>
+        <Field name="kiosco" type="Quiosco" visibility="private"/>
+        <Field name="t" type="Timer" visibility="private"/>
+        <Field name="modeloP" type="DefaultListModel" visibility="private"/>
+        <Field name="modeloNP" type="DefaultListModel" visibility="private"/>
+        <Field name="modeloS" type="DefaultListModel" visibility="private"/>
+        <Field name="historialP" type="DefaultListModel" visibility="private"/>
+        <Field name="historialNP" type="DefaultListModel" visibility="private"/>
+        <Field name="estructuraEntregas" type="Object" visibility="private"/>
+        <Field name="estructuraSeguridad" type="Object" visibility="private"/>
+        <Field name="colaEjecutiva" type="Heap" visibility="private"/>
+        <Field name="colaPAdmin" type="Heap" visibility="private"/>
+        <Field name="colaNPAdmin" type="Heap" visibility="private"/>
+        <Field name="minimoE" type="int" visibility="private"/>
+        <Field name="maximoE" type="int" visibility="private"/>
+        <Field name="cantC" type="int" visibility="private"/>
+        <Field name="cantS" type="int" visibility="private"/>
+        <Field name="atendidosNP" type="int" visibility="private"/>
+        <Field name="atendidosP" type="int" visibility="private"/>
+        <Field name="iNP" type="int" visibility="private"/>
+        <Field name="iP" type="int" visibility="private"/>
+        <Field name="totalP" type="int" visibility="private"/>
+        <Field name="totalNP" type="int" visibility="private"/>
+        <Field name="totalAP" type="int" visibility="private"/>
+        <Field name="totalANP" type="int" visibility="private"/>
+        <Field name="totalRP" type="int" visibility="private"/>
+        <Field name="totlaRNP" type="int" visibility="private"/>
+        <Field name="totalMP" type="int" visibility="private"/>
+        <Field name="totalMNP" type="int" visibility="private"/>
+        <Field name="totalAMP" type="int" visibility="private"/>
+        <Field name="totalAMNP" type="int" visibility="private"/>
+        <Field name="totalDP" type="int" visibility="private"/>
+        <Field name="totalDNP" type="int" visibility="private"/>
+        <Field name="totaldiscapacitado" type="int" visibility="private"/>
+        <Field name="totalregular" type="int" visibility="private"/>
+        <Field name="totalembarazada" type="int" visibility="private"/>
+        <Field name="totaladultomayor" type="int" visibility="private"/>
+        <Field name="tiempoEsperaSeguridad" type="int" visibility="private"/>
+        <Field name="tiempoEsperaP" type="int" visibility="private"/>
+        <Field name="tiempoEsperaNP" type="int" visibility="private"/>
+        <Field name="modo" type="String" visibility="private"/>
+        <Field name="manejoEntregas" type="String" visibility="private"/>
+        <Field name="manejoSeguridad" type="String" visibility="private"/>
+        <Field name="inicioP" type="long" visibility="private"/>
+        <Field name="inicioNP" type="long" visibility="private"/>
+        <Field name="finalP" type="long" visibility="private"/>
+        <Field name="finalNP" type="long" visibility="private"/>
+        <Field name="resultadoP" type="float" visibility="private"/>
+        <Field name="resultadoNP" type="float" visibility="private"/>
+        <Field name="colaP" type="Usuario[]" visibility="private"/>
+        <Field name="colaNP" type="Usuario[]" visibility="private"/>
+        <Field name="Fondo" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="btnAtenderNP" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnAtenderP" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnCambiarNP" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnCambiarP" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnCambiarSegu" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnEnviar" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnLiberarNP" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnLiberarP" type="javax.swing.JButton" visibility="private"/>
+        <Field name="buttonGroup1" type="javax.swing.ButtonGroup" visibility="private"/>
+        <Field name="buttonGroup2" type="javax.swing.ButtonGroup" visibility="private"/>
+        <Field name="fieldCorreo" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="fieldNombre" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="fieldNumEco" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="fieldNumEje" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="fieldNumSeguridad" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="fieldNumero" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="grupoClase" type="javax.swing.ButtonGroup" visibility="private"/>
+        <Field name="grupoEstado" type="javax.swing.ButtonGroup" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel10" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel11" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel12" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel13" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel14" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel15" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel16" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel19" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel20" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane2" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane3" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane4" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane5" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="lblAMP" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblCantidadC" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblCantidadS" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblDNP" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblDP" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblMNP" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblMP" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblPromedioNP" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblPromedioP" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblPromedioSeguridad" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblRNP" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblRP" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblSiguienteNP" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblSiguienteP" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTAMNP" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTiempo" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTipoCola" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTipoCola1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTipoCola10" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTipoCola11" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTipoCola18" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTipoCola5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTipoCola6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTipoCola8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTipoCola9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTotalANP" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTotalAP" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTotalNP" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTotalP" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblVentanasE" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="listHE" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="listHEj" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="listaEC" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="listaEJ" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="listaS" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="radioAdulto" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="radioDiscapacitado" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="radioEmbarazada" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="radioNoPerecederos" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="radioPerecederos" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="radioRegular" type="javax.swing.JRadioButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="ventanillasCheckin"/>
+          <Argument type="String" name="manejoEntregas"/>
+          <Argument type="int" name="ventanillasSeguridad"/>
+          <Argument type="String" name="manejoSeguridad"/>
+          <Argument type="int" name="minimoE"/>
+          <Argument type="int" name="maximoE"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="void" visibility="private"/>
+        <Method name="buscarVentanas" returnType="int" visibility="public"/>
+        <Method name="cronometroEco" returnType="void" visibility="public"/>
+        <Method name="cronometroEju" returnType="void" visibility="public"/>
+        <Method name="iniciarConteo" returnType="void" visibility="private">
+          <Argument type="int" name="minimo"/>
+          <Argument type="int" name="maximo"/>
+        </Method>
+        <Method name="insertarEnFila" returnType="void" visibility="public">
+          <Argument type="Usuario" name="nuevoU"/>
+          <Argument type="String" name="tipoC"/>
+        </Method>
+        <Method name="actualizarList" returnType="void" visibility="private">
+          <Argument type="String" name="tipo"/>
+        </Method>
+        <Method name="eliminarEnFila" returnType="void" visibility="public">
+          <Argument type="Usuario" name="aEliminar"/>
+          <Argument type="String" name="tipo"/>
+        </Method>
+        <Method name="determinarCantidaBoleto" returnType="void" visibility="public">
+          <Argument type="int" name="prioridad"/>
+          <Argument type="String" name="paquete"/>
+        </Method>
+        <Method name="btnEnviarMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="aumentarC" returnType="void" visibility="private"/>
+        <Method name="disminuirC" returnType="void" visibility="private"/>
+        <Method name="aumentarS" returnType="void" visibility="private"/>
+        <Method name="obtenerSiguiente" returnType="void" visibility="private">
+          <Argument type="Object" name="usr"/>
+          <Argument type="String" name="tipo"/>
+        </Method>
+        <Method name="btnAtenderPMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnLiberarPMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnAtenderNPMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnLiberarNPMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnCambiarPMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnCambiarNPMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnCambiarSeguMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="radioPerecederosActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="cambiarSeguVentanas" returnType="void" visibility="private">
+          <Argument type="int" name="ventanasSegu"/>
+        </Method>
+        <Method name="cambiarEjeVentanas" returnType="void" visibility="private">
+          <Argument type="int" name="ventanasEju"/>
+        </Method>
+        <Method name="cambiarEcoVentanas" returnType="void" visibility="private">
+          <Argument type="int" name="ventanasEco"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="TipoPaquete" package="Atributos" visibility="public" xPosition="635.0" yPosition="20.0">
+      <Literals>
+        <Literal name="PERECEDERO"/>
+        <Literal name="NOPERECEDERO"/>
+      </Literals>
+    </Enum>
+    <Enum name="TipoUsuario" package="Atributos" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Literals>
+        <Literal name="EMBARAZADA"/>
+        <Literal name="DISCAPACITADO"/>
+        <Literal name="ADULTOMAYOR"/>
+        <Literal name="REGULAR"/>
+      </Literals>
+    </Enum>
+    <Enum name="TipoVentanilla" package="Atributos" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Literals>
+        <Literal name="PERECEDEROS"/>
+        <Literal name="NOPERECEDEROS"/>
+        <Literal name="SEGURIDAD"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="kiosco" source="LogicaDePresentacion.Principal" target="Atributos.Quiosco" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="colaNPAdmin" source="LogicaDePresentacion.Principal" target="Estructuras.Heap" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="LogicaDePresentacion.Principal" target="Atributos.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Estructuras.ColaPrioridad" target="Estructuras.Prioridad" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Estructuras.Heap" target="Estructuras.Prioridad" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="job" source="Estructuras.Prioridad" target="Atributos.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Atributos.VentanillaPerecederos" target="Atributos.Ventanilla"/>
+    <HasRelation name="colaEjecutiva" source="LogicaDePresentacion.Principal" target="Estructuras.Heap" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Estructuras.Prioridad" target="Atributos.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Estructuras.Heap" target="Atributos.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Estructuras.Nodo" target="Estructuras.Nodo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="mensaje" source="LogicaDePresentacion.Principal" target="Atributos.Sms" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="colaPAdmin" source="LogicaDePresentacion.Principal" target="Estructuras.Heap" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Atributos.VentanillaNoPerecederos" target="Atributos.Ventanilla"/>
+    <IsRelation name="is" source="Atributos.VentanillaSeguridad" target="Atributos.Ventanilla"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

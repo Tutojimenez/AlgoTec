@@ -1,0 +1,5 @@
+﻿compilación: javac -d bin -sourcepath src -cp lib/lib1.jar src/LogicaDePresentacion/Configuracion.java
+
+
+ejecución: java -cp bin:lib/clientecache.jar LogicaDePresentacion.Configuracion
+
